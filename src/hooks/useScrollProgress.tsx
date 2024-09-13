@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const useScrollProgress = () => {
     const [completion, setCompletion] = useState(0);
@@ -10,9 +10,7 @@ const useScrollProgress = () => {
                 document.body.scrollHeight - window.innerHeight;
 
             if (scrollHeight) {
-                setCompletion(
-                    Number(currentProgress / scrollHeight).toFixed(2) * 100
-                );
+                setCompletion((currentProgress / scrollHeight) * 100);
             }
         };
 

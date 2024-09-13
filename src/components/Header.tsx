@@ -12,12 +12,14 @@ const Header = () => {
     const pathName = usePathname();
 
     useEffect(() => {
-        const scrollYPos = window.addEventListener('scroll', () => {
+        const handleScroll = () => {
             window.scrollY > 50 ? setHeader(true) : setHeader(false);
-        });
+        };
+
+        window.addEventListener('scroll', handleScroll);
 
         return () => {
-            window.removeEventListener('scroll', scrollYPos);
+            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 

@@ -7,17 +7,26 @@ import {
     RiFacebookFill,
     RiInstagramFill,
 } from 'react-icons/ri';
-
 import Link from 'next/link';
 
-const icons = [
+interface SocialItem {
+    path: string;   
+    name: React.ReactNode;  
+}
+
+interface SocialsProps {
+    containerStyles?: string; 
+    iconsStyles?: string;     
+}
+
+const icons: SocialItem[] = [
     { path: '/', name: <RiLinkedinFill /> },
     { path: '/', name: <RiGithubFill /> },
     { path: '/', name: <RiFacebookFill /> },
     { path: '/', name: <RiInstagramFill /> },
 ];
 
-const Socials = ({ containerStyles, iconsStyles }) => {
+const Socials: React.FC<SocialsProps> = ({ containerStyles = '', iconsStyles = '' }) => {
     return (
         <div className={`${containerStyles}`}>
             {icons.map((item, index) => {
