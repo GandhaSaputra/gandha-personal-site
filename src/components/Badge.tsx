@@ -2,13 +2,21 @@
 
 import React from 'react';
 import CountUp from 'react-countup';
+// Define the interface for the Badge component props
+interface BadgeProps {
+    containerStyles?: string; // Optional string for custom styles
+    icon: React.ReactNode;    // The icon can be any React node (like an element or component)
+    endCountNum: number;      // Number for the CountUp end value
+    endCountText?: string;    // Optional string to follow the CountUp number
+    badgeText?: string;       // Optional string for additional text
+}
 
-const Badge = ({
-    containerStyles,
+const Badge: React.FC<BadgeProps> = ({
+    containerStyles = '',  // Default to an empty string if not provided
     icon,
     endCountNum,
-    endCountText,
-    badgeText,
+    endCountText = '',      // Default to an empty string if not provided
+    badgeText = '',         // Default to an empty string if not provided
 }) => {
     return (
         <div className={`badge ${containerStyles}`}>
